@@ -1,0 +1,141 @@
+*{
+    font-family: Avenir, sans-serif;
+    font-size: 1em;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+  }
+  h1{
+      font-size: 1.5em;
+      margin: 20px auto;
+      text-align: center;
+      text-transform: uppercase;
+  }
+  
+  .conteneur{
+      display: flex;
+      flex-flow: column wrap;
+  }
+  .g1, .g4{background-color: RGBa(120,205,225,0.4);}
+  .g2, .g5{background-color: RGBa(225,100,175,0.4);}
+  .g1, .g2, .g4, .g5{min-height: 100px;}
+  .sousconteneur{
+      display: flex;
+      flex-flow: column wrap;
+      text-align: center;
+      background-color: RGBa(225,215,120,0.4);
+  }
+  .sousconteneur h1{
+      font-size: 1.2em;
+      margin: 10px 0px 0px 0px;
+  }
+  .sousconteneur nav ul{
+      display: flex;
+      flex-flow: row wrap;
+      list-style-type: none;
+      justify-content: space-around;
+  }
+  .sousconteneur nav a{
+      display: block;
+      color: #333;
+  }
+  .sousconteneur article{
+      margin: 10px;
+  }
+  .sousconteneur footer{
+      margin-bottom: 10px;
+  }
+  
+  body > footer{
+      width: 100%;
+      height: 100px;
+      background-color: #555;
+      color: white;
+      text-align:center;
+      padding: 20px;
+  }
+  
+  @media screen and (min-width: 980px){
+      .conteneur-nav{
+          position: static;
+      }
+      body > header > nav label, nav input{
+          display: none;
+      }
+      body > header > nav input[type=checkbox]:checked + ul, body > header > nav ul{
+          display: flex;
+          flex-flow: row wrap;
+          background-color: RGBa(220,220,220,0.5);
+      }
+      body > header > nav ul li{
+          position: relative;
+      }
+      body > header > nav > div > ul > li > a{
+          color: black;
+      }
+      body > header > nav a{
+          border-bottom: 2px solid transparent;
+      }
+      body > header > nav a:hover{
+          color: orange;
+          border-bottom: 2px solid gold;
+      }
+      .sous{
+          display: none;
+          box-shadow: 0px 1px 2px #CCC;
+          background-color: white;
+          position: absolute;
+          width: 100%;
+      }
+      body > header > nav > div > ul li:hover .sous{
+          display: flex;
+          flex-flow: column wrap;
+      }
+      .sous a{
+          border-bottom: none;
+          background-color: white;
+      }
+      .sous a:hover{
+          border-bottom: none;
+          background-color: RGBa(200,200,200,0.1);
+      }
+      .deroulant > a::after{
+          content:" ▼";
+          font-size: 12px;
+      }
+      .conteneur{
+          display: grid;
+          grid-template-columns: 1fr 2fr 1fr;
+          grid-template-rows: repeat(2,minmax(300px, 1fr));
+      }
+      .g1{
+          grid-column: 1 / 2;
+          margin-left: 20px;
+          text-align: center;
+      }
+      .g2{
+          grid-column: 1 / 2;
+          grid-row: 2 / 3;
+          margin-left: 20px;
+          text-align: center;
+      }
+      .g3{
+          grid-column: 2 / 3;
+          grid-row: 1 / 3;
+      }
+      .g4{
+          grid-column : 3 / 4;
+          margin-right: 20px;
+          text-align: center;
+      }
+      .g5{
+          grid-column : 3 / 4;
+          grid-row: 2 / 3;
+          margin-right: 20px;
+          text-align: center;
+      }
+  }
+
+  footer {
+      margin-top: 20px;
+  }
