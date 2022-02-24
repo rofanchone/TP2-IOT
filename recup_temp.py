@@ -2,6 +2,7 @@
 import paho.mqtt.client as mqtt 
 from pymodbus.client.sync import ModbusSerialClient
 import time
+import os
 
 client = ModbusSerialClient(
     method='rtu',
