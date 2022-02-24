@@ -1,6 +1,6 @@
 var mqtt = require('mqtt');
 var Topic = 'TEMPERATURE';
-var Broker_URL = 'mqtt://localhost';
+var Broker_URL = 'mqtt://192.168.10.10';
 
 var options = {
 	clientId: 'MyMQTT',
@@ -42,18 +42,30 @@ function mqtt_error(err)
 	if (err) {console.log(err);}
 }
 
-function after_publish()
-{
-	//do nothing
-}
-
 function mqtt_messsageReceived(topic, message, packet)
 {
 	console.log('Topic=' +  topic + '  Message=' + message);
+	insert(parseInt(message));
 
 }
 
 function mqtt_close()
 {
 	console.log("Close MQTT");
+}
+
+function insert(data) {
+	var MongoClient = require('mongodb').MongoClient;
+	var url = "mongodb://192.168.10.5/";
+
+	MongoClient.connect(url, function(err, db) {
+		if (err) throw err;
+		var dbo = db.db("tp2iot");
+		var myobj = { temperature: data};
+		dbo.collection("capteur1").insertOne(myobj, function(err, res) {
+		  if (err) throw err;
+		  console.log("1 document inserted");
+		  db.close();
+		});
+	  });
 }
