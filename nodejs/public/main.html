@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" media="screen" href="main.css">
+        <title>Gestion de la température</title>
+    </head> 
+    <h1>TP 2 IOT - Gestion de la température</h1>
+    
+    <section class="conteneur">
+      <aside class="g1"><br><p>Température capteur led bleu</p><br><p id="TempB">-5°C</p></aside>
+      <aside class="g2"><br><p>Température capteur led rouge</p><br><p id="TempR">25°C</p></aside>
+      <article class="g3 sousconteneur">
+        <header>
+          <h1>Historique des températures de la journée</h1><br>
+            <nav>
+                <ul>
+                  
+                <li id="capteur1">
+                  <a href="#">Capteur 1</a>
+                  <!-- <a >test</a> -->
+                </li>
+
+                <li id="capteur2">
+                  <a href="#">Capteur 2</a>
+                  <!-- <a>test</a> -->
+                </li>
+
+                </ul>
+            </nav>
+        </header>
+        
+      </article>    
+      <aside class="g4"><br><p>Refroidir<form>
+        <br><input type="text" id="tbleu" name="tbleu"><br><br>
+        <input type="button" value="Changer la température" onclick="ChangeTB()"></form></p><br><p>La température de refroidissement est de :</p><br><p id="TempRB">0°C</p></aside>
+      <aside class="g5"><br><p>Chauffer<form action="changeTR">
+        <br><input type="text" id="trouge" name="trouge"><br><br>
+        <input type="button" value="Changer la température" onclick="ChangeTR()"></form></p><br><p>La température de chauffage est de :</p><br><p id="TempRR">0°C</p></aside>
+    </section>
+    
+    <footer>
+        <br>
+      <p>Adrien, Axel, Luc, Robin</p>
+    </footer>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
+<script src="main.js"></script>
+</html>
