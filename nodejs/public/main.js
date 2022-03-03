@@ -20,6 +20,7 @@ function requeteAPICapteur1() {
         for (let i = 0; i < donnees.length; i++) {
             ajoutHTMLCapteur1(donnees[i]);
         }
+        requeteAPICapteur2();
     };
     callAPI.send();
 };
@@ -51,4 +52,3 @@ function ajoutHTMLCapteur2(data) {
 
 
 requeteAPICapteur1();
-requeteAPICapteur2();
