@@ -8,6 +8,10 @@ float volt;
 float tempC;
 int x ;
 
+int tempEng;
+int RedLed = 7;
+int BlueLed = 8;
+
 // Modbus Registers Offsets (0-9999) => 40001 + offset
 enum RegistersOffsets
 {
@@ -25,6 +29,8 @@ byte m_slaveId = 1;//chaque slave doit avoir un ID différent
 void setup() 
 {
   Serial.begin(57600); 
+  pinMode(BlueLed, OUTPUT);
+  pinMode(RedLed, OUTPUT);
   //while(!Serial){}
 
   initModbusSlave();
@@ -52,6 +58,8 @@ void loop()
   volt = x*5;
   volt/= 1023.0;
   tempC= (volt-0.5)*100;
+  TempLed();
+  
   //temp = analogRead(A0);
 
   //Serial.println(tempC);
@@ -68,3 +76,17 @@ void loop()
 
     delay(10);
 }
+
+void TempLed()
+{
+  if(tempC < tempEng)
+  {
+    analogWrite(BlueLed, HIGH);
+    analogWrite(RedLed, LOW);
+    
+  }else if (tempC > tempEng )
+  {
+    analogWrite(RedLed, HIGH);
+    analogWrite(BlueLed, LOW);
+    }
+ }
