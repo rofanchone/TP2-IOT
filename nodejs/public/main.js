@@ -13,7 +13,7 @@ function ChangeTR() {
 
 function requeteAPICapteur1() {
     callAPI = new XMLHttpRequest;
-    callAPI.open('GET', 'http://localhost/api/capteur1');
+    callAPI.open('GET', 'https://localhost/api/capteur1');
     callAPI.onload = function() {
         donnees = JSON.parse(callAPI.responseText);
         console.log(donnees);
@@ -27,7 +27,7 @@ function requeteAPICapteur1() {
 
 function requeteAPICapteur2() {
     callAPI = new XMLHttpRequest;
-    callAPI.open('GET', 'http://localhost/api/capteur2');
+    callAPI.open('GET', 'https://localhost/api/capteur2');
     callAPI.onload = function() {
         donnees = JSON.parse(callAPI.responseText);
         console.log(donnees);
