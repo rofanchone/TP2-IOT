@@ -51,7 +51,7 @@ app.get('/api/capteur2', (req, res) => {
 })
 
 https.createServer(cert_keys, app).listen(porthttps, function() {
-    console.log(`Le serveur roule en HTTPS sur: http://localhost:${porthttps}`)
+    console.log(`Le serveur roule en HTTPS sur: https://localhost:${porthttps}`)
 })
 app.listen(porthttp, () => {
     console.log(`Le serveur roule sur: http://localhost:${porthttp}`)
