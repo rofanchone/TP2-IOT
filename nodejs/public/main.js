@@ -1,5 +1,7 @@
 capteur1 = document.getElementById('capteur1');
 capteur2 = document.getElementById('capteur2');
+derniereTemperature1 = document.getElementById('Temp1');
+derniereTemperature2 = document.getElementById('Temp2');
 
 function ChangeTB() {
     var temp = document.getElementById("tbleu").value
@@ -17,6 +19,7 @@ function requeteAPICapteur1() {
     callAPI.onload = function() {
         donnees = JSON.parse(callAPI.responseText);
         console.log(donnees);
+        ajoutDerniereTemperature1(donnees[donnees.length - 1]);
         for (let i = 0; i < donnees.length; i++) {
             ajoutHTMLCapteur1(donnees[i]);
         }
@@ -31,6 +34,7 @@ function requeteAPICapteur2() {
     callAPI.onload = function() {
         donnees = JSON.parse(callAPI.responseText);
         console.log(donnees);
+        ajoutDerniereTemperature2(donnees[donnees.length - 1]);
         for (let i = 0; i < donnees.length; i++) {
             ajoutHTMLCapteur2(donnees[i]);
         }
@@ -50,5 +54,16 @@ function ajoutHTMLCapteur2(data) {
     capteur2.insertAdjacentHTML('beforeend', a_temp);
 };
 
+function ajoutDerniereTemperature1(data) {
+    var p_temp = "";
+    p_temp += '<p>' + data.temperature + '°C' + '</p>';
+    derniereTemperature1.insertAdjacentHTML('beforeend', p_temp);
+}
+
+function ajoutDerniereTemperature2(data) {
+    var p_temp = "";
+    p_temp += '<p>' + data.temperature + '°C' + '</p>';
+    derniereTemperature2.insertAdjacentHTML('beforeend', p_temp);
+}
 
 requeteAPICapteur1();
