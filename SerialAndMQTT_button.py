@@ -21,7 +21,7 @@ while (True):
         os.system(commande)
 
         
-        ser = serial.Serial('/dev/ttyUSB0', 19200, timeout=1)
+        ser = serial.Serial('/dev/ttyUSB1', 19200, timeout=1)
         res2 = ser.readline()
         res2_decode = res2.decode('utf-8')
 
